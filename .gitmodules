@@ -1,0 +1,12 @@
+[submodule "dh_echo_app"]
+	path = dh_echo_app
+	url = https://github.com/birm/dh_echo_app.git
+[submodule "deployment_hub"]
+	path = deployment_hub
+	url = https://github.com/birm/deployment_hub.git
+[submodule "dh_api_node"]
+	path = dh_api_node
+	url = https://github.com/birm/dh_api_node.git
+[submodule "dh_echo_frontend"]
+	path = dh_echo_frontend
+	url = https://github.com/birm/dh_echo_frontend.git
