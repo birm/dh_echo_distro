@@ -18,6 +18,7 @@ services:
     container_name: echo-api
     depends_on:
       - "mongo"
+      - "echo-hub"
     ports:
       ["8081:8081"]
     environment:
@@ -28,7 +29,7 @@ services:
     build: "./dh_echo_app"
     container_name: echo-srv
     depends_on:
-      - "hub"
+      - "echo-hub"
     expose:
       ["8082"]
     environment:
