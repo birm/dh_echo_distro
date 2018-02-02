@@ -9,7 +9,7 @@ services:
   hub:
     build: "./deployment_hub"
     container_name: echo-hub
-    ports:
+    expose:
       ["8080"]
     environment:
       "hub_pw": ${HUB_PW}
@@ -29,7 +29,7 @@ services:
     container_name: echo-srv
     depends_on:
       - "hub"
-    ports:
+    expose:
       ["8082"]
     environment:
       "hub_url": "echo-hub:8080"
@@ -39,6 +39,6 @@ services:
     build: "./dh_echo_frontend"
     container_name: echo-web
     ports:
-      ["8083:80"]
+      ["80:8083"]
     environment:
       "api_url": "echo-api:8081"
