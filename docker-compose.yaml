@@ -21,7 +21,7 @@ services:
     ports:
       ["8081:8081"]
     environment:
-      "mongo_host": "echo-mongo"
+      "mongo_host": "echo-mongo:27017"
       "hub_url": "echo-hub:8080"
       "hub_pw": ${HUB_PW}
   echo_srv:
