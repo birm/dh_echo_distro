@@ -7,14 +7,14 @@ services:
     ports:
       ["27017"]
   hub:
-    build: "./deployment_hub"
+    build: "./ensign_registry"
     container_name: echo-hub
     expose:
       ["8080"]
     environment:
       "hub_pw": ${HUB_PW}
   api_node:
-    build: "./dh_api_node"
+    build: "./ensign_gateway"
     container_name: echo-api
     depends_on:
       - "mongo"
@@ -26,7 +26,7 @@ services:
       "hub_url": "echo-hub:8080"
       "hub_pw": ${HUB_PW}
   echo_srv:
-    build: "./dh_echo_app"
+    build: "./ensign_demo_app"
     container_name: echo-srv
     depends_on:
       - "hub"
@@ -37,7 +37,7 @@ services:
       "hub_pw": ${HUB_PW}
       "hostname": "echo-srv:8082"
   echo_frontend:
-    build: "./dh_echo_frontend"
+    build: "./ensign_demo_frontend"
     container_name: echo-web
     ports:
       ["80:8083"]
